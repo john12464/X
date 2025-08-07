@@ -179,19 +179,10 @@ function initFormEnhancements() {
     });
 }
 
-// Parallax effect for hero elements
+// Parallax effect for hero elements (disabled - using Galaxy background)
 function initParallaxEffects() {
-    const heroElements = document.querySelectorAll('.floating-elements .element');
-    
-    window.addEventListener('scroll', function() {
-        const scrolled = window.pageYOffset;
-        const rate = scrolled * -0.5;
-        
-        heroElements.forEach((element, index) => {
-            const speed = 0.3 + (index * 0.1);
-            element.style.transform = `translateY(${rate * speed}px)`;
-        });
-    });
+    // Galaxy background handles its own animations
+    return;
 }
 
 // Text typing effect
@@ -301,6 +292,29 @@ function initCursorTrail() {
     updateTrail();
 }
 
+// Initialize Galaxy background
+function initGalaxyBackground() {
+    const galaxyContainer = document.getElementById('galaxy-container');
+    if (galaxyContainer && window.Galaxy) {
+        new Galaxy(galaxyContainer, {
+            focal: [0.5, 0.5],
+            rotation: [1.0, 0.0],
+            starSpeed: 0.3,
+            density: 0.8,
+            hueShift: 140,
+            speed: 0.8,
+            mouseInteraction: true,
+            glowIntensity: 0.4,
+            saturation: 0.2,
+            mouseRepulsion: true,
+            repulsionStrength: 1.5,
+            twinkleIntensity: 0.4,
+            rotationSpeed: 0.05,
+            transparent: false
+        });
+    }
+}
+
 // Initialize all effects when DOM is loaded
 document.addEventListener('DOMContentLoaded', function() {
     initScrollAnimations();
@@ -311,6 +325,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initFormEnhancements();
     initParallaxEffects();
     initCounterAnimation();
+    initGalaxyBackground();
     
     // Optional: Enable cursor trail on desktop only
     if (window.innerWidth > 768) {
@@ -333,4 +348,3 @@ function debounce(func, wait) {
 
 // Apply debouncing to scroll-heavy functions
 window.addEventListener('scroll', debounce(initNavbarScroll, 10));
-window.addEventListener('scroll', debounce(initParallaxEffects, 10));
