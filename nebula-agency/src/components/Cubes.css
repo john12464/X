@@ -1,0 +1,71 @@
+/* Cubes Animation Styles */
+.default-animation {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  perspective: 1000px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.default-animation--scene {
+  display: grid;
+  gap: 5%;
+  transform-style: preserve-3d;
+  width: 100%;
+  height: 100%;
+  max-width: 500px;
+  max-height: 500px;
+}
+
+.cube {
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.1s ease-out;
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 1;
+}
+
+.cube-face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: var(--cube-face-bg, #060010);
+  border: var(--cube-face-border, 1px solid #fff);
+  box-shadow: var(--cube-face-shadow, none);
+  opacity: 0.9;
+  transition: background-color 0.3s ease;
+}
+
+.cube-face--front {
+  transform: translateZ(calc(50% - 0.5px));
+}
+
+.cube-face--back {
+  transform: translateZ(calc(-50% + 0.5px)) rotateY(180deg);
+}
+
+.cube-face--right {
+  transform: rotateY(90deg) translateZ(calc(50% - 0.5px));
+}
+
+.cube-face--left {
+  transform: rotateY(-90deg) translateZ(calc(50% - 0.5px));
+}
+
+.cube-face--top {
+  transform: rotateX(90deg) translateZ(calc(50% - 0.5px));
+}
+
+.cube-face--bottom {
+  transform: rotateX(-90deg) translateZ(calc(50% - 0.5px));
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .desktop-only {
+    display: none;
+  }
+}
