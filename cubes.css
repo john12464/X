@@ -1,0 +1,134 @@
+/* Cubes Animation Styles */
+.default-animation {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  perspective: 1000px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.default-animation--scene {
+  display: grid;
+  gap: 5%;
+  transform-style: preserve-3d;
+  width: 100%;
+  height: 100%;
+  max-width: 500px;
+  max-height: 500px;
+}
+
+.cube {
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.1s ease-out;
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 1;
+}
+
+.cube-face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: var(--cube-face-bg, #060010);
+  border: var(--cube-face-border, 1px solid #fff);
+  box-shadow: var(--cube-face-shadow, none);
+  opacity: 0.9;
+  transition: background-color 0.3s ease;
+}
+
+.cube-face--front {
+  transform: translateZ(calc(50% - 0.5px));
+}
+
+.cube-face--back {
+  transform: translateZ(calc(-50% + 0.5px)) rotateY(180deg);
+}
+
+.cube-face--right {
+  transform: rotateY(90deg) translateZ(calc(50% - 0.5px));
+}
+
+.cube-face--left {
+  transform: rotateY(-90deg) translateZ(calc(50% - 0.5px));
+}
+
+.cube-face--top {
+  transform: rotateX(90deg) translateZ(calc(50% - 0.5px));
+}
+
+.cube-face--bottom {
+  transform: rotateX(-90deg) translateZ(calc(50% - 0.5px));
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .desktop-only {
+    display: none;
+  }
+}
+
+/* Animation section specific styles */
+.animation-section {
+  padding: 120px 0;
+  background: linear-gradient(180deg, var(--color-background) 0%, var(--color-support) 100%);
+  overflow: hidden;
+}
+
+.animation-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.animation-content h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  background: linear-gradient(135deg, var(--color-main), var(--color-secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.animation-content p {
+  font-size: 1.1rem;
+  color: rgba(240, 241, 245, 0.8);
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+.animation-visual {
+  height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .animation-container {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    text-align: center;
+  }
+
+  .animation-content h2 {
+    font-size: 2rem;
+  }
+
+  .animation-visual {
+    height: 300px;
+  }
+
+  .default-animation--scene {
+    max-width: 300px;
+    max-height: 300px;
+  }
+}

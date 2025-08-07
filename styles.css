@@ -136,6 +136,11 @@ body {
   margin-bottom: 1.5rem;
 }
 
+.hero-title-main {
+  color: white;
+  font-weight: 900;
+}
+
 .gradient-text {
   background: linear-gradient(135deg, var(--color-main), var(--color-secondary));
   -webkit-background-clip: text;

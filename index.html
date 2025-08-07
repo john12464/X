@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nebula - Web Development Agency</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="cubes.css">
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -41,7 +42,7 @@
             <div class="hero-container">
                 <div class="hero-content animate-fade-up">
                     <h1 class="hero-title">
-                        We Create <span class="gradient-text">Digital Experiences</span> That Matter
+                        <span class="hero-title-main">The New Era Of Innovation</span>
                     </h1>
                     <p class="hero-description">
                         Nebula is a cutting-edge web development agency that transforms your vision into stunning digital realities. We craft websites that not only look amazing but perform exceptionally.
@@ -103,6 +104,28 @@
             </div>
         </section>
 
+        <!-- Animation Section -->
+        <section class="animation-section">
+            <div class="animation-container">
+                <div class="animation-content">
+                    <h2 class="animate-on-scroll">Interactive Innovation</h2>
+                    <p class="animate-on-scroll">
+                        Experience the future of web development with our cutting-edge interactive animations. 
+                        Move your mouse over the cubes to see them respond with fluid 3D transformations, 
+                        or click anywhere to trigger a mesmerizing ripple effect that showcases the power 
+                        of modern web technologies.
+                    </p>
+                    <p class="animate-on-scroll">
+                        This is just a glimpse of what we can create for your brand - immersive, 
+                        engaging experiences that captivate your audience and set you apart from the competition.
+                    </p>
+                </div>
+                <div class="animation-visual">
+                    <div id="cubes-container" class="animate-on-scroll"></div>
+                </div>
+            </div>
+        </section>
+
         <!-- CTA Section -->
         <section class="cta">
             <div class="container">
@@ -139,7 +162,9 @@
         </div>
     </footer>
 
+    <script src="node_modules/gsap/dist/gsap.min.js"></script>
     <script src="galaxy.js"></script>
+    <script src="cubes.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

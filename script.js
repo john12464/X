@@ -315,6 +315,29 @@ function initGalaxyBackground() {
     }
 }
 
+// Initialize Cubes animation
+function initCubesAnimation() {
+    const cubesContainer = document.getElementById('cubes-container');
+    if (cubesContainer && window.Cubes && window.gsap) {
+        new Cubes(cubesContainer, {
+            gridSize: 8,
+            cubeSize: null,
+            maxAngle: 35,
+            radius: 2.5,
+            easing: "power3.out",
+            duration: { enter: 0.4, leave: 0.8 },
+            cellGap: { col: 8, row: 8 },
+            borderStyle: `1px solid ${getComputedStyle(document.documentElement).getPropertyValue('--color-main').trim()}`,
+            faceColor: getComputedStyle(document.documentElement).getPropertyValue('--color-support').trim(),
+            shadow: `0 0 10px rgba(177, 140, 255, 0.3)`,
+            autoAnimate: true,
+            rippleOnClick: true,
+            rippleColor: getComputedStyle(document.documentElement).getPropertyValue('--color-main').trim(),
+            rippleSpeed: 1.5
+        });
+    }
+}
+
 // Initialize all effects when DOM is loaded
 document.addEventListener('DOMContentLoaded', function() {
     initScrollAnimations();
@@ -326,6 +349,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initParallaxEffects();
     initCounterAnimation();
     initGalaxyBackground();
+    initCubesAnimation();
     
     // Optional: Enable cursor trail on desktop only
     if (window.innerWidth > 768) {
